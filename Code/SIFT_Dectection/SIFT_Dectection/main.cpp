@@ -179,7 +179,7 @@ int main() {
 			}
 		}
 		cout << good_matches.size() << endl;
-		//ransac
+		//ransac   https://blog.csdn.net/dcrmg/article/details/52578732
 		if (good_matches.size() >= 5) {
 				int ptCount = (int)good_matches.size();
 				Mat p1(good_matches.size(), 2, CV_32F);
