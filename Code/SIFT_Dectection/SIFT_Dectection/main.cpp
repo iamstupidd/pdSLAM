@@ -129,7 +129,7 @@
 //	return 0;
 //}
 //#endif
-
+/************************************************* SIFT + FLANN + RANSAC******************************************************************************/
 /* opencv */
 #include <opencv2\core.hpp>
 #include <opencv2\highgui.hpp>
@@ -146,7 +146,7 @@ using namespace cv::xfeatures2d;
 using namespace cv;
 
 int main() {
-	Mat ori = imread("C:/Users/13948/Desktop/slam/Code/SIFT_Dectection/SIFT_Dectection/book_image/test/ori.jpg", IMREAD_GRAYSCALE);
+	Mat ori = imread("C:/Users/13948/Desktop/slam/Code/SIFT_Dectection/SIFT_Dectection/book_image/test/ori4.jpg", IMREAD_GRAYSCALE);
 	Mat show_ori = ori.clone();
 	int hessian = 400;
 	Ptr<SURF> detector = SURF::create(hessian);
@@ -163,7 +163,7 @@ int main() {
 
 	for (auto element : books) {
 		knn_matches.clear();
-		string cur = "C:/Users/13948/Desktop/slam/Code/SIFT_Dectection/SIFT_Dectection/book_image/" + element;
+		string cur = "C:/Users/13948/Desktop/slam/Code/SIFT_Dectection/SIFT_Dectection/book_image/ori/" + element;
 		Mat curImg = imread(cur, IMREAD_GRAYSCALE);
 		vector<KeyPoint> curKeyPoints;
 		Mat cur_descripters;
@@ -240,7 +240,7 @@ int main() {
 				Mat OutImage;
 				drawMatches(ori, key1, curImg, key2, m_InlierMatches, OutImage, Scalar(255, 0, 255), Scalar(0, 255, 0));
 				if (m_InlierMatches.size() > maxlen) {
-					maxlen = good_matches.size();
+					maxlen = m_InlierMatches.size();
 					res_book = curImg;
 					drawMatches(ori, key1, curImg, key2, m_InlierMatches, res_match, Scalar::all(-1),
 						Scalar::all(-1), std::vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
@@ -285,3 +285,79 @@ int main() {
 	waitKey(0);
 	return 0;
 }
+
+/***********************************************ORB + BRUTH-HAMMING*************************************************************************/
+
+///* opencv */
+//#include <opencv2\core.hpp>
+//#include <opencv2\highgui.hpp>
+//#include <opencv2\features2d.hpp>
+//#include <opencv2\xfeatures2d.hpp>
+//#include <opencv2\calib3d.hpp>
+///* c++ */
+//#include <iostream>
+//#include <vector>
+//
+//
+//using namespace std;
+//using namespace cv::xfeatures2d;
+//using namespace cv;
+//
+//int main() {
+//	Mat ori = imread("C:/Users/13948/Desktop/slam/Code/SIFT_Dectection/SIFT_Dectection/book_image/test/ori2.jpg", IMREAD_GRAYSCALE);
+//	Mat show_ori = ori.clone();
+//	Ptr<ORB> detector = ORB::create();
+//	vector<KeyPoint> oriKeyPoints;
+//	Mat ori_descripters;
+//	detector->detectAndCompute(ori, noArray(), oriKeyPoints, ori_descripters);
+//	drawKeypoints(show_ori, oriKeyPoints, show_ori, Scalar(255, 0, 0));
+//	vector<string> books = { "操作系统教程.jpg","操作系统黑书.jpg","离散数学.jpg","概率论.jpg","数据库.jpg" ,"线性代数.jpg" };
+//	Mat res_book, res_match;
+//	int maxlen = 0;
+//	Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create(DescriptorMatcher::BRUTEFORCE_HAMMING);
+//	//Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create(DescriptorMatcher::BRUTEFORCE_HAMMING);
+//	vector< vector<DMatch> > knn_matches;
+//
+//	for (auto element : books) {
+//		vector<DMatch> matches;
+//		string cur = "C:/Users/13948/Desktop/slam/Code/SIFT_Dectection/SIFT_Dectection/book_image/ori/" + element;
+//		Mat curImg = imread(cur, IMREAD_GRAYSCALE);
+//		vector<KeyPoint> curKeyPoints;
+//		Mat cur_descripters;
+//		
+//		detector->detectAndCompute(curImg, noArray(), curKeyPoints, cur_descripters);
+//		matcher->match(ori_descripters, cur_descripters, matches);
+//		double min_dist = 10000, max_dist = 0;
+//		for (int i = 0; i < ori_descripters.rows; i++)
+//		{
+//			double dist = matches[i].distance;
+//			if (dist < min_dist) min_dist = dist;
+//			if (dist > max_dist) max_dist = dist;
+//		}
+//		std::vector< DMatch > good_matches;
+//		for (int i = 0; i < ori_descripters.rows; i++)
+//		{
+//			if (matches[i].distance <= max(2 * min_dist, 30.0))
+//			{
+//				good_matches.push_back(matches[i]);
+//			}
+//		}
+//		Mat OutImage;
+//		drawMatches(ori, oriKeyPoints, curImg, curKeyPoints, good_matches, OutImage, Scalar::all(-1),
+//				Scalar::all(-1), std::vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
+//		imshow("temp", OutImage);
+//		waitKey(1000);
+//		if (good_matches.size() > maxlen) {
+//			maxlen = good_matches.size();
+//			res_book = curImg;
+//			res_match = OutImage.clone();
+//			res_book = curImg.clone();
+//		}
+//	}
+//	assert(maxlen != 0);
+//	imshow("原图特征点", show_ori);
+//	imshow("匹配结果", res_match);
+//	imshow("最匹配书籍", res_book);
+//	waitKey(0);
+//	return 0;
+//}
