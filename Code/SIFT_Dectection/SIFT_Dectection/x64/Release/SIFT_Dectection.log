@@ -1,0 +1,13 @@
+﻿  main.cpp
+main.obj : error LNK2001: 无法解析的外部符号 "void __cdecl cv::imshow(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class cv::_InputArray const &)" (?imshow@cv@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV_InputArray@1@@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "protected: void __cdecl cv::CommandLineParser::getByName(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool,enum cv::Param,void *)const " (?getByName@CommandLineParser@cv@@IEBAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_NW4Param@2@PEAX@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "public: __cdecl cv::CommandLineParser::~CommandLineParser(void)" (??1CommandLineParser@cv@@QEAA@XZ)
+main.obj : error LNK2001: 无法解析的外部符号 "public: __cdecl cv::CommandLineParser::CommandLineParser(int,char const * const * const,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0CommandLineParser@cv@@QEAA@HQEBQEBDAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "public: void __cdecl cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QEAAXXZ)
+main.obj : error LNK2001: 无法解析的外部符号 "class cv::_InputOutputArray const & __cdecl cv::noArray(void)" (?noArray@cv@@YAAEBV_InputOutputArray@1@XZ)
+main.obj : error LNK2001: 无法解析的外部符号 "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPEAX@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "class cv::Mat __cdecl cv::imread(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)" (?imread@cv@@YA?AVMat@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "void __cdecl cv::drawKeypoints(class cv::_InputArray const &,class std::vector<class cv::KeyPoint,class std::allocator<class cv::KeyPoint> > const &,class cv::_InputOutputArray const &,class cv::Scalar_<double> const &,enum cv::DrawMatchesFlags)" (?drawKeypoints@cv@@YAXAEBV_InputArray@1@AEBV?$vector@VKeyPoint@cv@@V?$allocator@VKeyPoint@cv@@@std@@@std@@AEBV_InputOutputArray@1@AEBV?$Scalar_@N@1@W4DrawMatchesFlags@1@@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "public: static struct cv::Ptr<class cv::xfeatures2d::SURF> __cdecl cv::xfeatures2d::SURF::create(double,int,int,bool,bool)" (?create@SURF@xfeatures2d@cv@@SA?AU?$Ptr@VSURF@xfeatures2d@cv@@@3@NHH_N0@Z)
+main.obj : error LNK2001: 无法解析的外部符号 "int __cdecl cv::waitKey(int)" (?waitKey@cv@@YAHH@Z)
+C:\Users\13948\Desktop\slam\Code\SIFT_Dectection\x64\Release\SIFT_Dectection.exe : fatal error LNK1120: 11 个无法解析的外部命令

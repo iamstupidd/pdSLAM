@@ -1,0 +1,8 @@
+﻿  main.cpp
+c:\users\13948\desktop\slam\code\sift_dectection\sift_dectection\main.cpp(185): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\13948\desktop\slam\code\sift_dectection\sift_dectection\main.cpp(186): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\13948\desktop\slam\code\sift_dectection\sift_dectection\main.cpp(220): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+c:\users\13948\desktop\slam\code\sift_dectection\sift_dectection\main.cpp(243): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+c:\users\13948\desktop\slam\code\sift_dectection\sift_dectection\main.cpp(260): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  SIFT_Dectection.vcxproj -> C:\Users\13948\Desktop\slam\Code\SIFT_Dectection\x64\Debug\SIFT_Dectection.exe
+  SIFT_Dectection.vcxproj -> C:\Users\13948\Desktop\slam\Code\SIFT_Dectection\x64\Debug\SIFT_Dectection.pdb (Partial PDB)
